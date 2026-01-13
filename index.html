@@ -3,46 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bright Minds: A Calm Space for Your Thoughts/title>
+<title>Bright Minds — A Safe Space for You</title>
 
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-</head>
 
+</head>
 <body class="welcome-page">
 
 <section class="welcome-hero">
 
     <div class="welcome-card">
 
-        <!-- LOGO AREA -->
-        <!-- If you add an image logo later, uncomment the img tag -->
-        <!-- <img src="images/logo.png" alt="Bright Minds Logo" class="logo"> -->
+        <!-- LOGO -->
+        <img src="images/logo.png" alt="Bright Minds Journal Logo" class="logo">
 
-        <h1 class="logo-text">Bright Minds Journal</h1>
+        <!-- MAIN TITLE -->
+        <h1 class="logo-text">Bright Minds — A Safe Space for You</h1>
 
+        <!-- TAGLINE -->
         <p class="tagline">
-            A gentle space for your thoughts, feelings, and wellbeing.
+            A gentle place to pause, reflect, and take care of your mind.
         </p>
 
+        <!-- DESCRIPTION -->
         <div class="welcome-description">
             <p>
-                Bright Minds Journal was created as a calm, supportive space
-                where you can check in with yourself each day.
+                Bright Minds Journal is a calm, supportive space where you can check in with yourself every day.
             </p>
-
             <p>
-                Here, you can reflect on your mood, write freely without judgment,
-                and receive daily positive messages designed to encourage,
-                reassure, and support your mental wellbeing.
+                Reflect on your mood, vent freely, and receive daily positive messages designed to encourage and support your mental wellbeing.
             </p>
-
             <p>
-                There is no pressure to write perfectly — this space is for honesty,
-                growth, and self-care, at your own pace.
+                There is no pressure to write perfectly — this space is for honesty, growth, and self-care at your own pace.
             </p>
         </div>
 
+        <!-- BUTTON TO JOURNAL -->
         <div class="welcome-actions">
             <button onclick="enterJournal()">Enter Your Journal</button>
         </div>
@@ -51,6 +49,7 @@
 
 </section>
 
+<!-- Redirect to journal -->
 <script>
 function enterJournal() {
     window.location.href = "journal.html";
