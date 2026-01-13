@@ -1,67 +1,129 @@
-const MOODS = ["😔","😐","🙂","😄","🌤️"];
-const DAILY_THOUGHTS = [
-  "Take today one step at a time.",
-  "Your feelings are valid.",
-  "Rest is productive.",
-  "Your presence matters.",
-  "One breath at a time.",
-  "You don’t have to be perfect.",
-  "Small steps still count."
-];
-
-function getTodayKey() {
-  return new Date().toISOString().split("T")[0];
+/* GENERAL STYLING */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #fef9f2, #e0f7fa);
+    color: #333;
 }
 
-function loadDailyThought() {
-  const key = "brightmindThought_" + getTodayKey();
-  let thought = localStorage.getItem(key);
-  if (!thought) {
-    thought = DAILY_THOUGHTS[Math.floor(Math.random() * DAILY_THOUGHTS.length)];
-    localStorage.setItem(key, thought);
-  }
-  document.getElementById("thought").innerText = thought;
+/* HEADER */
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #88ccee, #66aabb);
+    color: white;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+header h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3em;
+}
+header p {
+    font-size: 1.2em;
+    margin-top: 10px;
+    opacity: 0.9;
 }
 
-function renderMoods() {
-  const container = document.getElementById("moods");
-  MOODS.forEach(emoji => {
-    const btn = document.createElement("button");
-    btn.innerText = emoji;
-    btn.onclick = () => localStorage.setItem("brightmindMood_" + getTodayKey(), emoji);
-    container.appendChild(btn);
-  });
+/* CONTAINER */
+.container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+
+/* SECTIONS */
+section {
+    background: rgba(255,255,255,0.95);
+    padding: 30px 25px;
+    margin-bottom: 40px;
+    border-radius: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+section:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
+h2 { color: #66aabb; margin-bottom: 20px; font-weight: 600; }
+
+/* POSITIVE MESSAGE */
+.message {
+    font-style: italic;
+    font-size: 1.5em;
+    padding: 20px 25px;
+    background: linear-gradient(135deg, #ffe29f, #ff9a9e);
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+    animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(15px);}
+    to {opacity: 1; transform: translateY(0);}
 }
 
-function saveMood() {
-  const note = document.getElementById("note").value;
-  const date = getTodayKey();
-  const mood = localStorage.getItem("brightmindMood_" + date);
-  if (!mood) {
-    alert("Select a mood first!");
-    return;
-  }
-  const history = JSON.parse(localStorage.getItem("brightmindHistory") || "[]");
-  history.unshift({ date, mood, note });
-  localStorage.setItem("brightmindHistory", JSON.stringify(history));
-  alert("Saved! 🌱");
+/* BUTTONS */
+button {
+    background-color: #66aabb;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1em;
+    transition: background 0.3s, transform 0.2s;
+}
+button:hover { background-color: #558899; transform: translateY(-2px); }
+
+/* TEXTAREAS & SELECT */
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    resize: none;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+select {
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    font-size: 1em;
 }
 
-function showHistory() {
-  const list = JSON.parse(localStorage.getItem("brightmindHistory") || "[]");
-  const container = document.getElementById("historyList");
-  container.innerHTML = "";
-  list.forEach(e => {
-    const div = document.createElement("div");
-    div.innerHTML = `<strong>${e.date}</strong> ${e.mood}<br>${e.note}`;
-    container.appendChild(div);
-  });
-  document.getElementById("historyView").style.display = "block";
+/* JOURNAL & VENT ENTRIES */
+.entry {
+    background: #fef9f2;
+    padding: 15px 18px;
+    border-radius: 15px;
+    margin-bottom: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+}
+.entry:hover { transform: translateY(-3px); }
+.entry .mood {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 10px;
+    font-size: 0.85em;
+    margin-left: 10px;
+    color: white;
+}
+.mood-Happy { background-color: #FFD700; }
+.mood-Calm { background-color: #66ccff; }
+.mood-Anxious { background-color: #ff9900; }
+.mood-Sad { background-color: #9966cc; }
+.mood-Frustrated { background-color: #ff4d4d; }
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 25px;
+    font-size: 0.95em;
+    color: #555;
 }
 
-function hideHistory() {
-  document.getElementById("historyView").style.display = "none";
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    header h1 { font-size: 2.2em; }
+    button { width: 100%; margin-top: 10px; }
 }
-
-loadDailyThought();
-renderMoods();
