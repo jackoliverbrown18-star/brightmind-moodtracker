@@ -4,54 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bright Minds Journal</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-<header>
-    <h1>Bright Minds Journal</h1>
-    <p>Your safe space to reflect, vent, and track moods daily</p>
-</header>
+<body class="welcome-page">
 
-<div class="container">
+<section class="welcome-hero">
+    <div class="welcome-content">
+        <h1>Bright Minds Journal</h1>
+        <p>
+            A calm, supportive space to reflect, release your thoughts,  
+            and gently track your emotional wellbeing.
+        </p>
 
-    <!-- DAILY POSITIVE MESSAGE -->
-    <section id="daily-message">
-        <h2>Today's Positive Message</h2>
-        <p class="message" id="positiveMessage"></p>
-        <button onclick="newMessage()">Show Another Message</button>
-    </section>
+        <div class="welcome-features">
+            <div>🧠 Daily mood tracking</div>
+            <div>✍️ Private journaling</div>
+            <div>💬 A safe space to vent</div>
+        </div>
 
-    <!-- MOOD JOURNAL -->
-    <section id="mood-journal">
-        <h2>Mood Journal</h2>
-        <select id="moodSelect">
-            <option value="Happy">😊 Happy</option>
-            <option value="Calm">😌 Calm</option>
-            <option value="Anxious">😰 Anxious</option>
-            <option value="Sad">😢 Sad</option>
-            <option value="Frustrated">😤 Frustrated</option>
-        </select>
-        <textarea id="journalEntry" placeholder="Write about your mood, thoughts, or reflections..."></textarea>
-        <button onclick="saveJournal()">Save Entry</button>
-        <div id="journalEntries"></div>
-    </section>
+        <button onclick="enterJournal()">Enter Your Journal</button>
+    </div>
+</section>
 
-    <!-- VENT SPACE -->
-    <section id="vent-space">
-        <h2>Vent Space</h2>
-        <textarea id="ventEntry" placeholder="Share your worries or frustrations..."></textarea>
-        <button onclick="saveVent()">Share</button>
-        <div id="ventEntries"></div>
-    </section>
+<script>
+function enterJournal() {
+    window.location.href = "journal.html";
+}
+</script>
 
-</div>
-
-<footer>
-    &copy; 2026 Bright Minds Journal. Take care of yourself.
-</footer>
-
-<script src="script.js"></script>
 </body>
 </html>
