@@ -3,49 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Journal | Bright Minds</title>
-
+<title>Journal — Bright Minds</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header class="journal-header">
-    <h1>Your Journal</h1>
-    <p>Take a moment. Write honestly. This space is yours.</p>
-</header>
+<nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="journal.html">Journal</a>
+    <a href="tips.html">Tips</a>
+    <a href="advice.html">Advice</a>
+    <a href="strategies.html">Strategies</a>
+</nav>
 
 <main class="container">
+    <header class="page-header">
+        <h1>Your Daily Journal</h1>
+        <p>Check in with your mood and reflect on your day.</p>
+    </header>
 
     <section>
-        <h2>🌼 Daily Positive Message</h2>
-        <p class="message" id="positiveMessage"></p>
-        <button onclick="newMessage()">New Message</button>
+        <p id="positiveMessage" class="daily-message"></p>
+        <textarea placeholder="Write your thoughts here..." rows="10" class="journal-textarea"></textarea>
     </section>
 
-    <section>
-        <h2>📝 Mood Journal</h2>
-        <select id="moodSelect">
-            <option value="Happy">😊 Happy</option>
-            <option value="Calm">😌 Calm</option>
-            <option value="Anxious">😰 Anxious</option>
-            <option value="Sad">😢 Sad</option>
-            <option value="Frustrated">😤 Frustrated</option>
-        </select>
-
-        <textarea id="journalEntry" placeholder="How are you feeling today?"></textarea>
-        <button onclick="saveJournal()">Save Entry</button>
-        <div id="journalEntries"></div>
-    </section>
-
-    <section>
-        <h2>💭 Vent Space</h2>
-        <textarea id="ventEntry" placeholder="Let it out. No judgment here."></textarea>
-        <button onclick="saveVent()">Share</button>
-        <div id="ventEntries"></div>
-    </section>
-
+    <div class="welcome-actions" style="text-align:center; margin-top:20px;">
+        <button onclick="goToPage('index.html')">Return Home</button>
+    </div>
 </main>
 
 <footer>
@@ -53,5 +38,10 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+function goToPage(url) {
+    window.location.href = url;
+}
+</script>
 </body>
 </html>
