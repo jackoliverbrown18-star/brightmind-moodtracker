@@ -1,27 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Brightmind Mood Tracker</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bright Minds Journal</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Brightmind</h1>
-  <div id="thought"></div>
-  <div id="moods"></div>
-  <textarea id="note" placeholder="Add a note (optional)"></textarea>
-  <button onclick="saveMood()">Save Check‑In</button>
-  <div id="historyLink">
-    <button onclick="showHistory()">View History</button>
-  </div>
-  
-  <div id="historyView" style="display:none;">
-    <h2>History</h2>
-    <div id="historyList"></div>
-    <button onclick="hideHistory()">Close</button>
-  </div>
 
-  <script src="script.js"></script>
+<header>
+    <h1>Bright Minds Journal</h1>
+    <p>Your safe space to reflect, vent, and track moods daily</p>
+</header>
+
+<div class="container">
+
+    <!-- DAILY POSITIVE MESSAGE -->
+    <section id="daily-message">
+        <h2>Today's Positive Message</h2>
+        <p class="message" id="positiveMessage"></p>
+        <button onclick="newMessage()">Show Another Message</button>
+    </section>
+
+    <!-- MOOD JOURNAL -->
+    <section id="mood-journal">
+        <h2>Mood Journal</h2>
+        <select id="moodSelect">
+            <option value="Happy">😊 Happy</option>
+            <option value="Calm">😌 Calm</option>
+            <option value="Anxious">😰 Anxious</option>
+            <option value="Sad">😢 Sad</option>
+            <option value="Frustrated">😤 Frustrated</option>
+        </select>
+        <textarea id="journalEntry" placeholder="Write about your mood, thoughts, or reflections..."></textarea>
+        <button onclick="saveJournal()">Save Entry</button>
+        <div id="journalEntries"></div>
+    </section>
+
+    <!-- VENT SPACE -->
+    <section id="vent-space">
+        <h2>Vent Space</h2>
+        <textarea id="ventEntry" placeholder="Share your worries or frustrations..."></textarea>
+        <button onclick="saveVent()">Share</button>
+        <div id="ventEntries"></div>
+    </section>
+
+</div>
+
+<footer>
+    &copy; 2026 Bright Minds Journal. Take care of yourself.
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
