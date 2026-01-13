@@ -36,12 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!messageElement) return;
 
     const today = new Date().toDateString();
-
     let startDate = localStorage.getItem("startDate");
     let dayIndex = localStorage.getItem("dayIndex");
 
     if (!startDate) {
-        // First visit ever
         localStorage.setItem("startDate", today);
         localStorage.setItem("dayIndex", 0);
         messageElement.textContent = messages[0];
