@@ -9,19 +9,18 @@
 </head>
 <body>
 
-<!-- Navigation -->
 <nav class="site-nav">
     <a href="index.html">Home</a>
     <a href="journal.html">Journal</a>
     <a href="tips.html">Tips</a>
+    <a href="advice.html">Advice</a>
+    <a href="strategies.html">Strategies</a>
 </nav>
 
-<!-- Page Content -->
 <main class="container">
-
     <header class="page-header">
         <h1>Mental Health & Wellbeing Tips</h1>
-        <p>Simple strategies to support your mind and body every day</p>
+        <p>Simple strategies to support your mind and body every day.</p>
     </header>
 
     <section>
@@ -39,11 +38,19 @@
         </ul>
     </section>
 
+    <div class="welcome-actions" style="text-align:center; margin-top:20px;">
+        <button onclick="goToPage('index.html')">Return Home</button>
+    </div>
 </main>
 
 <footer>
     © 2026 Bright Minds Journal — You are not alone.
 </footer>
 
+<script>
+function goToPage(url) {
+    window.location.href = url;
+}
+</script>
 </body>
 </html>
