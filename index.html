@@ -4,57 +4,40 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bright Minds — A Safe Space for You</title>
-
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-
 </head>
 <body class="welcome-page">
 
+<!-- Navigation -->
+<nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="journal.html">Journal</a>
+    <a href="tips.html">Tips</a>
+    <a href="advice.html">Advice</a>
+    <a href="strategies.html">Strategies</a>
+</nav>
+
 <section class="welcome-hero">
-
     <div class="welcome-card">
-
-        <!-- LOGO -->
-        <img src="images/logo.png" alt="Bright Minds Journal Logo" class="logo">
-
-        <!-- MAIN TITLE -->
+        <img src="images/logo.png" alt="Bright Minds Logo" class="logo">
         <h1 class="logo-text">Bright Minds — A Safe Space for You</h1>
-
-        <!-- TAGLINE -->
-        <p class="tagline">
-            A gentle place to pause, reflect, and take care of your mind.
-        </p>
-
-        <!-- DESCRIPTION -->
+        <p class="tagline">A gentle place to pause, reflect, and take care of your mind.</p>
         <div class="welcome-description">
-            <p>
-                Bright Minds Journal is a calm, supportive space where you can check in with yourself every day.
-            </p>
-            <p>
-                Reflect on your mood, vent freely, and receive daily positive messages designed to encourage and support your mental wellbeing.
-            </p>
-            <p>
-                There is no pressure to write perfectly — this space is for honesty, growth, and self-care at your own pace.
-            </p>
+            <p>Bright Minds Journal is a calm, supportive space where you can check in with yourself every day.</p>
+            <p>Reflect on your mood, vent freely, and receive daily positive messages designed to encourage and support your mental wellbeing.</p>
+            <p>There is no pressure to write perfectly — this space is for honesty, growth, and self-care at your own pace.</p>
         </div>
-
-        <!-- BUTTON TO JOURNAL -->
         <div class="welcome-actions">
-            <button onclick="enterJournal()">Enter Your Journal</button>
+            <button onclick="goToPage('journal.html')">Enter Your Journal</button>
         </div>
-
     </div>
-
 </section>
 
-<!-- Redirect to journal -->
 <script>
-function enterJournal() {
-    window.location.href = "journal.html";
+function goToPage(url) {
+    window.location.href = url;
 }
 </script>
-
 </body>
 </html>
